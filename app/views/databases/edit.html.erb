@@ -1,0 +1,8 @@
+<h1>Editing Database</h1>
+<br>
+<%= render 'form', database: @database %>
+
+<br>
+<%= link_to 'Show', @database, class:"btn btn-secondary" %> 
+<%= link_to 'Delete', @database, method: :delete, data: { confirm: 'Are you sure?' } ,class:"btn btn-danger " %>
+<%= link_to 'Back', databases_path, class:"btn btn-dark" %>

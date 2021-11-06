@@ -1,0 +1,42 @@
+
+<% if user_signed_in?%>
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Twitter</th>
+      <th>User Id</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @databases.each do |database| %>
+    <% if database.user == current_user%>
+      <tr>
+        <td>
+        
+        <%= link_to database.first_name + " " + database.last_name, database %> 
+        </td>
+        <td><%= database.email %></td>
+        <td><%= database.phone %></td>
+        <td><%= database.twitter %></td>
+        <td><%= database.user_id %></td>
+        <td><%= link_to 'Delete', database, method: :delete, data: { confirm: 'Are you sure?' } ,class:"btn btn-outline-danger btn-sm" %></td>
+
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Database', new_database_path, class:"btn btn-secondary" %>
+<% else %>
+
+<h1>Hello</h1>
+<% end%>

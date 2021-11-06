@@ -1,0 +1,13 @@
+<div class="jumbotron">
+  <h1 class="display-4"><%= @database.first_name %><%= @database.last_name %></h1>
+  <p class="lead">
+   <%= @database.email %> | 
+   <%= @database.phone %> | 
+    <%= @database.twitter %>
+   </p>
+  <br>
+  <%= link_to 'Edit', edit_database_path(@database), class:"btn btn-secondary"%>
+  <%= link_to 'Delete', @database, method: :delete, data: { confirm: 'Are you sure?' } ,class:"btn btn-danger " %>
+  <%= link_to 'Back', databases_path, class:"btn btn-dark"%>
+
+</div>
